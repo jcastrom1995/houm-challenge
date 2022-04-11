@@ -1,3 +1,4 @@
+import { ReactElement } from "react"
 import s from "./Button.module.css"
 
 type ButtonType = JSX.IntrinsicElements["button"]["type"]
@@ -18,7 +19,7 @@ const Button = ({
     type,
     dataRole,
     width,
-}: ButtonI) => {
+}: ButtonI): ReactElement => {
     return (
         <button
             type={type}

@@ -1,0 +1,20 @@
+.heading {
+    font-weight: var(--heading-weight);
+    color: var(--text-color);
+}
+
+.heading-headline {
+    font-size: var(--heading-font-size-headline);
+}
+
+.heading-title {
+    font-size: var(--heading-font-size-title);
+}
+
+.heading-subtitle {
+    font-size: var(--heading-font-size-subtitle);
+}
+
+.heading-caption {
+    font-size: var(--heading-font-size-caption);
+}
