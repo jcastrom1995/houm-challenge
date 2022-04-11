@@ -1,3 +1,35 @@
 {
-  "extends": "next/core-web-vitals"
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb-typescript",
+        "prettier",
+        "next/core-web-vitals"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": ["react", "@typescript-eslint"],
+    "rules": {
+        "arrow-body-style": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": "off",
+        "@typescript-eslint/no-explicit-any": "error",
+        "import/prefer-default-export": "off",
+        "react/button-has-type": "off",
+        "react/jsx-filename-extension": [
+            2,
+            { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+        ]
+    }
 }
