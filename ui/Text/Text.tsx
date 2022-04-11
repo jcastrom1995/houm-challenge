@@ -5,7 +5,15 @@ import s from "./Text.module.css"
 interface TextI {
     children: React.ReactNode
     tag: string
-    spacing: "micro" | "tiny" | "small" | "base" | "semi" | "large" | "x-large"
+    spacing?:
+        | "micro"
+        | "tiny"
+        | "small"
+        | "base"
+        | "semi"
+        | "large"
+        | "x-large"
+        | undefined
 }
 
 const Text = ({ children, tag = "p", spacing }: TextI): ReactElement => {
@@ -13,6 +21,10 @@ const Text = ({ children, tag = "p", spacing }: TextI): ReactElement => {
     const spacingClass = spacing ? `spacing-${spacing}` : null
 
     return <Tag className={cn(s.text, spacingClass)}>{children}</Tag>
+}
+
+Text.defaultProps = {
+    spacing: undefined,
 }
 
 export default Text

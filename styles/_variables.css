@@ -155,4 +155,10 @@
     --button-background-error: var(--colors-red-500);
 
     --modal-padding: var(--spacing-standard);
+
+    /* Heading UI */
+    --heading-font-size-headline: var(--font-size-2x-large);
+    --heading-font-size-title: var(--font-size-x-large);
+    --heading-font-size-subtitle: var(--font-size-large);
+    --heading-font-size-caption: var(--font-size-semi);
 }
