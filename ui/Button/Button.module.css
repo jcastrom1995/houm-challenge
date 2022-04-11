@@ -1,0 +1,38 @@
+.button {
+    border-radius: 0.5rem;
+    border: none;
+    color: var(--colors-white);
+    cursor: pointer;
+    display: inline;
+    font-size: var(--button-font-size);
+    font-weight: var(--medium);
+    outline: none;
+    padding: var(--button-padding);
+    transition: 0.2s linear;
+}
+
+.button[data-role="primary"] {
+    background: var(--button-background-primary);
+}
+
+.button[data-role="secondary"] {
+    background: var(--button-background-secondary);
+}
+
+.button[data-role="success"] {
+    background: var(--button-background-success);
+}
+
+.button[data-role="alert"] {
+    background: var(--button-background-error);
+}
+
+.button:hover {
+    transform: scale(1.03);
+}
+
+.button:disabled {
+    cursor: default;
+    opacity: 0.5;
+    transform: scale(1);
+}
