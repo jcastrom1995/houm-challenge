@@ -1,0 +1,5 @@
+.text {
+    font-size: var(--font-size-standard);
+    color: var(--colors-gray-600);
+    line-height: 1.5rem;
+}
