@@ -1,9 +1,9 @@
-import { ReactElement } from "react"
+import { ReactElement, ReactNode } from "react"
 import cn from "classnames"
 import s from "./Text.module.css"
 
 interface TextI {
-    children: React.ReactNode
+    children: ReactNode
     tag: string
     spacing?:
         | "micro"
