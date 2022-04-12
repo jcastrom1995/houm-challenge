@@ -16,11 +16,17 @@
 }
 
 .information svg {
-  color: var(--colors-gray-600);
+  color: var(--color-icon);
 }
 
 .photo {
+  display: block;
   position: relative;
   width: 100%;
   height: auto;
+}
+
+.image {
+  display: block;
+  border-radius: var(--border-radius-semi) var(--border-radius-semi) 0 0;
 }

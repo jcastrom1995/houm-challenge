@@ -6,9 +6,9 @@ import s from "./Character.module.css";
 
 interface CharacterI {
   photo: string;
-  name: string;
-  gender: string;
-  location: string;
+  name?: string;
+  gender?: string;
+  location?: string;
 }
 
 const Character = ({
@@ -20,24 +20,37 @@ const Character = ({
   return (
     <Field className={s.character}>
       <picture className={s.photo}>
-        <Image src={photo} alt={name} width={250} height={250} />
+        <Image
+          className={s.image}
+          src={photo}
+          width={307.33}
+          height={255.89}
+          alt={name}
+          layout="responsive"
+        />
       </picture>
       <Field className={s.about}>
         <Field className={s.information} spacing="tiny">
-          <Icon.Identification size={20} />
+          <Icon.Identification size={17} />
           <Text tag="span">{name}</Text>
         </Field>
         <Field className={s.information} spacing="tiny">
-          <Icon.User size={20} />
+          <Icon.User size={17} />
           <Text tag="span">{gender}</Text>
         </Field>
         <Field className={s.information}>
-          <Icon.Globe size={20} />
+          <Icon.Globe size={17} />
           <Text tag="span">{location}</Text>
         </Field>
       </Field>
     </Field>
   );
+};
+
+Character.defaultProps = {
+  location: "Peñaflor ",
+  gender: "Masculino",
+  name: "Javier",
 };
 
 export default Character;
