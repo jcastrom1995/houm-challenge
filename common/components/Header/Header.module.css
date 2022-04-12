@@ -1,0 +1,7 @@
+.header {
+  max-width: var(--wrapper);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-standard) 0;
+  display: block;
+}

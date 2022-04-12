@@ -1,0 +1,26 @@
+.character {
+    border: 1px solid var(--colors-gray-300);
+    border-radius: var(--border-radius-semi);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.about {
+    border-top: 1px solid var(--colors-gray-300);
+    padding: 0.75rem;
+}
+
+.information {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.information svg {
+    color: var(--colors-gray-600);
+}
+
+.photo {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
