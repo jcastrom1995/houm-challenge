@@ -1,4 +1,5 @@
 import { ReactElement, ReactNode } from "react";
+import { CharacterProvider } from "character/repository/characters.store";
 import { Header } from "../Header";
 
 import s from "./Layout.module.css";
@@ -9,10 +10,12 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps): ReactElement => {
   return (
-    <main className={s.main}>
-      <Header />
-      <section className={s.content}>{children}</section>
-    </main>
+    <CharacterProvider>
+      <main className={s.main}>
+        <Header />
+        <section className={s.content}>{children}</section>
+      </main>
+    </CharacterProvider>
   );
 };
 

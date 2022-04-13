@@ -1,31 +1,21 @@
-import { useEffect, useState } from "react";
 import { Character } from "character/components";
 import { Layout } from "common/components";
-import { getCharacters } from "character/repository/character.service";
 import s from "styles/Home.module.css";
-import { CharacterResponse } from "character/models";
+
+import { useCharacterViewModel } from "character/controller";
 import { NextPageWithLayout } from "./_app";
 
 const Home: NextPageWithLayout = () => {
-  const [characters, setCharacters] = useState<CharacterResponse>();
-  const [loading, setLoading] = useState(true);
+  const { characters, loading } = useCharacterViewModel();
 
-  useEffect(() => {
-    getCharacters()
-      .then((res) => {
-        console.log(res);
-        setCharacters(res);
-      })
-      .finally(() => setLoading(false));
-  }, []);
-
-  console.log(characters?.results);
+  if (loading) {
+    return <span>Cargando...</span>;
+  }
 
   return (
     <section className={s.container}>
       <section className={s.characters}>
-        {loading && <span>Cargando...</span>}
-        {characters?.results?.map((char) => (
+        {characters?.map((char) => (
           <Character
             key={char.id}
             photo={char.image}

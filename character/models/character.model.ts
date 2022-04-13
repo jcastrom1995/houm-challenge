@@ -28,4 +28,4 @@ interface CharacterResponse {
   results: Character[];
 }
 
-export type { CharacterResponse };
+export type { CharacterResponse, Character };
