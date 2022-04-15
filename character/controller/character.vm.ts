@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import useStore from "character/repository/characters.store";
 import { Character, CharacterResponse } from "character/models";
 import {
@@ -15,7 +15,6 @@ const useCharacterViewModel = () => {
   const [charactersData, setCharactersData] = useState<CharacterResponse>(); // base characters list
   const { updateTotalPage, changeLoading, loading, search, currentPage } =
     useStore();
-  const controller = useMemo(() => new AbortController(), []);
 
   const requestCharacters = useCallback(
     (url?: string) => {
@@ -36,9 +35,7 @@ const useCharacterViewModel = () => {
 
   useEffect(() => {
     requestCharacters(`/character/?page=${currentPage}`);
-
-    return () => controller.abort();
-  }, [currentPage, requestCharacters, controller]);
+  }, [currentPage, requestCharacters]);
 
   useEffect(() => {
     const characterFiltered = charactersData?.results.filter((char) =>
