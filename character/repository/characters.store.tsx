@@ -1,47 +1,35 @@
-import { createContext, useContext, useMemo, useReducer } from "react";
-import {
-  Action,
-  CharacterProviderT,
-  CharacterState,
-  Store,
-} from "character/models";
+import create from "zustand";
+import { CharacterState } from "character/models";
 
-const defaultState = { search: "" };
-
-const CharacterContext = createContext<Store<CharacterState>>({
-  state: {
-    search: "",
+const useStore = create<CharacterState>((set) => ({
+  search: "",
+  currentPage: 1,
+  totalPage: null,
+  loading: false,
+  changeSearch: (searchValue: string) => {
+    set((state) => ({
+      ...state,
+      search: searchValue,
+    }));
   },
-  dispatch: () => null,
-});
+  changeLoading: (loading: boolean) => {
+    set((state) => ({
+      ...state,
+      loading,
+    }));
+  },
+  updateTotalPage: (totalPageValue: number) => {
+    set((state) => ({
+      ...state,
+      totalPage: totalPageValue,
+    }));
+  },
+  changePage: (newPage: number) => {
+    set((state) => ({
+      ...state,
+      currentPage: newPage,
+    }));
+  },
+}));
 
-function characterReducer(state: CharacterState, action: Action) {
-  switch (action.key) {
-    case "search":
-      return {
-        ...state,
-        search: action.payload,
-      };
-    default:
-      return state;
-  }
-}
-
-export function CharacterProvider({ children }: CharacterProviderT) {
-  const [state, dispatch] = useReducer(characterReducer, defaultState);
-  const value = useMemo(() => ({ state, dispatch }), [state]);
-
-  return (
-    <CharacterContext.Provider value={value}>
-      {children}
-    </CharacterContext.Provider>
-  );
-}
-
-export function useCharacter(): Store<CharacterState> {
-  const context = useContext(CharacterContext);
-  if (!context)
-    throw new Error("useCharacter must be used inside a CharacterProvider");
-
-  return context;
-}
+export default useStore;

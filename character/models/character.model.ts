@@ -15,16 +15,19 @@ interface Character {
   };
   image: string;
   url: string;
+  episode: string[];
   created: Date;
 }
 
+interface Info {
+  count: number;
+  pages: number;
+  next: string;
+  prev: string;
+}
+
 interface CharacterResponse {
-  info: {
-    count: number;
-    pages: number;
-    next: string;
-    prev: string;
-  };
+  info: Info;
   results: Character[];
 }
 

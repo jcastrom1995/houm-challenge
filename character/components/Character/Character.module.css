@@ -2,6 +2,7 @@
   border: 1px solid var(--colors-gray-300);
   border-radius: var(--border-radius-semi);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
 }
 
 .about {
@@ -13,6 +14,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  text-align: right;
 }
 
 .information svg {
