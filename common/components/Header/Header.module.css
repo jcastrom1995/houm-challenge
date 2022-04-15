@@ -1,7 +1,25 @@
 .header {
-  max-width: var(--wrapper);
-  width: 100%;
+  display: flex;
+  gap: var(--spacing-large);
   margin: 0 auto;
+  max-width: var(--wrapper);
   padding: var(--spacing-standard) 0;
-  display: block;
+  width: 100%;
+  align-items: center;
+}
+
+.logo {
+  flex-shrink: 0;
+  width: 100px;
+  position: relative;
+}
+
+@media screen and (max-width: 640px) {
+  .header {
+    gap: var(--spacing-small);
+  }
+
+  .logo {
+    width: 70px;
+  }
 }

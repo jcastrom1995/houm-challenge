@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from "react";
-import { CharacterProvider } from "character/repository/characters.store";
+import Head from "next/head";
 import { Header } from "../Header";
 
 import s from "./Layout.module.css";
@@ -10,12 +10,14 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps): ReactElement => {
   return (
-    <CharacterProvider>
-      <main className={s.main}>
-        <Header />
-        <section className={s.content}>{children}</section>
-      </main>
-    </CharacterProvider>
+    <main className={s.main}>
+      <Head>
+        <title>Rick & Morty App</title>
+      </Head>
+
+      <Header />
+      <section className={s.content}>{children}</section>
+    </main>
   );
 };
 

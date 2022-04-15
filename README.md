@@ -2,6 +2,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Replace `.env.example` for `.env`
+
+Install husky
+
+```bash
+yarn husky install
+```
+
 First, run the development server:
 
 ```bash
@@ -23,7 +31,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Learn Next.js](https://next js.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
@@ -32,3 +40,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Information
+
+This project use husky to manage eslint and prettier.
+
+## Architecture information
+
+This project was developed in a clean architecture and it has been structured by entities
+
+```bash
+character for all relation to Rick and Morty characters
+common for global components
+lib for libraries
+ui for kit UI
+```
+
+This project has a kit UI to maintain and follow the graphic design

@@ -1,3 +1,4 @@
 lint-staged.config.js
 next.config.js
 public/scripts
+jest.config.js

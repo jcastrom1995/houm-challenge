@@ -1,30 +1,87 @@
+import Image from "next/image";
 import { Character } from "character/components";
 import { Layout } from "common/components";
-import s from "styles/Home.module.css";
-
 import { useCharacterViewModel } from "character/controller";
-import { NextPageWithLayout } from "./_app";
+import { Button, Heading, Field, Text, Modal, Loading } from "ui/components";
+import * as Icon from "Icons";
+import s from "styles/Home.module.css";
+import type { NextPageWithLayout } from "./_app";
 
 const Home: NextPageWithLayout = () => {
-  const { characters, loading } = useCharacterViewModel();
+  const {
+    characters,
+    loading,
+    handleOpenModal,
+    showModal,
+    character,
+    handleCloseModal,
+  } = useCharacterViewModel();
 
   if (loading) {
-    return <span>Cargando...</span>;
+    return (
+      <span>
+        <Loading />
+      </span>
+    );
   }
 
   return (
     <section className={s.container}>
       <section className={s.characters}>
-        {characters?.map((char) => (
+        {characters?.map(({ id, image, name, gender, location }) => (
           <Character
-            key={char.id}
-            photo={char.image}
-            name={char.name}
-            gender={char.gender}
-            location={char.location.name}
+            key={id}
+            photo={image}
+            name={name}
+            gender={gender}
+            location={location.name}
+            onSelect={() => handleOpenModal(id)}
           />
         ))}
       </section>
+      {showModal && character && (
+        <Modal>
+          <Modal.Header>
+            <Heading type="subtitle" rank={4} text={character.name} />
+            <Button
+              dataRole="primary"
+              type="button"
+              onClick={handleCloseModal}
+              width={120}
+            >
+              Close
+            </Button>
+          </Modal.Header>
+          <Modal.Content>
+            <picture className={s.photo}>
+              <Image
+                src={character.image}
+                width={200}
+                height={200}
+                alt={character.name}
+              />
+            </picture>
+            <div className={s.information}>
+              <Field className={s.field} spacing="tiny">
+                <Icon.User size={20} />
+                <Text tag="span">{character.gender}</Text>
+              </Field>
+              <Field className={s.field} spacing="tiny">
+                <Icon.Home size={20} />
+                <Text tag="span">{character.location.name}</Text>
+              </Field>
+              <Field className={s.field} spacing="tiny">
+                <Icon.Globe size={20} />
+                <Text tag="span">{character.origin.name}</Text>
+              </Field>
+              <Field className={s.field}>
+                <Icon.Film size={20} />
+                <Text tag="span">{character.episode.length}</Text>
+              </Field>
+            </div>
+          </Modal.Content>
+        </Modal>
+      )}
     </section>
   );
 };

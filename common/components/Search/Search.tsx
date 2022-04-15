@@ -1,15 +1,17 @@
-import { useCharacter } from "character/repository/characters.store";
-import { Field } from "ui";
+import { Field } from "ui/components";
 
 import * as Icon from "Icons";
 
 import s from "./Search.module.css";
 
-const Search = () => {
-  const { state, dispatch } = useCharacter();
+type SearchProps = {
+  value: string;
+  onChange: (value: string) => void;
+};
 
-  const handleChange = (value: string) => {
-    dispatch({ key: "search", payload: value });
+const Search = ({ value, onChange }: SearchProps) => {
+  const handleChange = (val: string) => {
+    onChange(val);
   };
 
   return (
@@ -19,7 +21,7 @@ const Search = () => {
         placeholder="Search character"
         type="text"
         className={s.field}
-        value={state.search}
+        value={value}
       />
       <Icon.Search size={19} />
     </Field>
