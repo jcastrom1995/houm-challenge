@@ -1,0 +1,34 @@
+.shadow {
+  background: rgba(0, 0, 0, 0.7);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.modal {
+  background: white;
+  border-radius: var(--border-radius-standard);
+  height: auto;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 650px;
+  width: 95%;
+}
+
+.header {
+  align-items: center;
+  border-bottom: 1px solid var(--colors-gray-400);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.325rem;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--colors-gray-400);
+}
