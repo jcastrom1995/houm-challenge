@@ -28,6 +28,16 @@
   padding: 1rem 1.325rem;
 }
 
+.notFound {
+  text-align: center;
+  padding: var(--spacing-large);
+  font-weight: var(--medium);
+  color: var(--colors-gray-500);
+  font-size: var(--font-size-large);
+  border-radius: var(--border-radius-semi);
+  border: 2px solid var(--colors-gray-300);
+}
+
 @media screen and (max-width: 640px) {
   .characters {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

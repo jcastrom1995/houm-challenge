@@ -25,6 +25,10 @@ const Home: NextPageWithLayout = () => {
     );
   }
 
+  if (characters && !characters.length) {
+    return <div className={s.notFound}>Result not found</div>;
+  }
+
   return (
     <section className={s.container}>
       <section className={s.characters}>
