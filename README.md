@@ -57,3 +57,7 @@ ui for kit UI
 ```
 
 This project has a kit UI to maintain and follow the graphic design
+
+## Features
+
+The search implementation can only search on the same page

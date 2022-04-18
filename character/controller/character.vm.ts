@@ -37,6 +37,7 @@ const useCharacterViewModel = () => {
     requestCharacters(`/character/?page=${currentPage}`);
   }, [currentPage, requestCharacters]);
 
+  // The search implementation can only search on the same page
   useEffect(() => {
     const characterFiltered = charactersData?.results.filter((char) =>
       char.name.toLowerCase().includes(search.toLowerCase())

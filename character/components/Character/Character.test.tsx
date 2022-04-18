@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 
 import Character from "./Character";
 
-describe("Home", () => {
+describe("Character Component", () => {
   it("renders a heading", () => {
     render(
       <Character
